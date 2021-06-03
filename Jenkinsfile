@@ -21,8 +21,8 @@ pipeline {
 
 		stage('Push to docker hub') {
 			steps{
-				withCredentials([usernameColonPassword(credentialsId: 'docker-hub', variable: 'dockerPWD')]) {
-					sh "docker login -u rjaswanth09 -p ${dockerPWD}"
+				withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
+					sh "docker login -u ${username} -p ${password}"
 					sh "docker push rjaswanth09/2021myapp:${getLatestCommitId()}"
 				}
 			}
