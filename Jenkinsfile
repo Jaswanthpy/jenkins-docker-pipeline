@@ -8,7 +8,7 @@ pipeline {
 	stages {
 		stage('Maven Build') {
 			steps {
-				sh 'echo "${getLatestCommitId()}"'
+				sh "echo ${getLatestCommitId()}"
 				sh "mvn clean package"
 			}
 		}
