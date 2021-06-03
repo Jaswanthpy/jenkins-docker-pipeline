@@ -15,7 +15,7 @@ pipeline {
 
 		stage('Docker Build Image') {
 			steps {
-				sh 'docker build -t rjaswanth09/2021myapp:${getLatestCommitId()} .'
+				sh 'docker build . -t rjaswanth09/2021myapp:${getLatestCommitId()}'
 			}
 		}
 	}
