@@ -27,6 +27,15 @@ pipeline {
 				}
 			}
 		}
+
+		stage('dev-deploy') {
+			steps {
+				sshagent(['ssh']) {
+					sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.40.236 docker rm -f mywebapp"
+					sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.40.236 docker run -d -p 8080:8080 --name mywebapp rjaswanth09/2021myapp:${getLatestCommitId()}"
+				}
+			}
+		}
 	}
 }
 
