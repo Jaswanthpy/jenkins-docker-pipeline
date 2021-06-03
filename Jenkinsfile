@@ -8,15 +8,8 @@ pipeline {
 	stages {
 		stage('Maven Build') {
 			steps {
-				sh 'mvn clean package'
+				sh 'echo "Hello Jenkins"'
 			}
-
-		stage('Docker Build Image') {
-			steps {
-				sh 'docker build . -t rjaswanth09/2021myapp'
-			}
-		}
-
 		}
 	}
 }
