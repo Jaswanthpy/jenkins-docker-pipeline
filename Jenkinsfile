@@ -14,7 +14,7 @@ pipeline {
 
 		stage('Docker Build Image') {
 			steps {
-				sh 'echo "Hello Jenkins"'
+				sh 'docker build . -t rjaswanth09/2021myapp'
 			}
 		}
 	}
