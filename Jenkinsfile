@@ -11,5 +11,11 @@ pipeline {
 				sh "mvn clean package"
 			}
 		}
+
+		stage('Docker Build Image') {
+			steps {
+				sh 'echo "Hello Jenkins"'
+			}
+		}
 	}
 }
