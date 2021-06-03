@@ -8,7 +8,7 @@ pipeline {
 	stages {
 		stage('Maven Build') {
 			steps {
-				sh 'echo "Hello Jenkins"'
+				sh "mvn clean package"
 			}
 		}
 	}
