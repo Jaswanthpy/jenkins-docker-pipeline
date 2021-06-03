@@ -18,6 +18,15 @@ pipeline {
 				sh "docker build . -t rjaswanth09/2021myapp:${getLatestCommitId()}"
 			}
 		}
+
+		stage('Push to docker hub') {
+			steps{
+				withCredentials([usernameColonPassword(credentialsId: 'docker-hub', variable: 'dockerPWD')]) {
+					sh "docker login -u rjaswanth09 -p ${dockerPWD}"
+					sh "docker push rjaswanth09/2021myapp:${getLatestCommitId()}"
+				}
+			}
+		}
 	}
 }
 
