@@ -6,16 +6,18 @@ pipeline {
 	}
 
 	stages {
-		stage('Hello') {
-			steps {
-				sh 'echo "Hello jenkins test!"'
-			}
-		}
 
 		stage('Maven Build') {
 			steps {
 				sh 'mvn clean package'
 			}
+
+		stage('Docker Build Image') {
+			steps {
+				sh 'docker build . -t rjaswanth09/2021myapp'
+			}
+		}
+
 		}
 	}
 }
