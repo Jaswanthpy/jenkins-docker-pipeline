@@ -14,7 +14,7 @@ pipeline {
 
 		stage('Docker Build Image') {
 			steps {
-				sh 'sudo docker build . -t rjaswanth09/2021myapp'
+				sh 'docker build -t rjaswanth09/2021myapp .'
 				sh 'echo "hello docker"'
 			}
 		}
